@@ -1,5 +1,4 @@
 // src/components/NavBar.js
-
 import React from "react";
 import { useAuth0 } from "../../react-auth0-spa";
 import { Link } from "react-router-dom";
@@ -21,8 +20,8 @@ const NavBar = () => {
         <span>
           <Link to="/">Home</Link>&nbsp;
           <Link to="/profile">Profile</Link>
-          <Link to="/external-api">External API</Link>
-          <Link to="/vehicleHome">Garage</Link>
+          {/* <Link to="/external-api">External API</Link> */}
+          <Link to="/garage">Garage</Link>
         </span>
       )}
     </div>
