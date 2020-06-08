@@ -1,5 +1,6 @@
 import React from "react";
 import PrivateRoute from "./components/PrivateRoute";
+import { useAuth0 } from "./react-auth0-spa";
 import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
 import Title from "./components/Title";
@@ -10,9 +11,12 @@ import Garage from "./components/Garage";
 import Home from "./components/Home";
 
 function App() {
+  const { loading } = useAuth0();
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="App">
-      {/* Don't forget to include the history module */}
       <Router history={history}>
         <header>
           <Title />
@@ -23,7 +27,6 @@ function App() {
           <PrivateRoute path="/Profile" component={Profile} />
           <PrivateRoute path="/Garage" component={Garage} />
           {/* <PrivateRoute path="/external-api" component={ExternalApi} /> */}
-
         </Switch>
 
       </Router>

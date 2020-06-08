@@ -4,7 +4,7 @@ import { List } from "./List";
 
 const Card = ({ post }) => {
 
-  let { name, trim, year, color, make, model, vin } = post;
+  const { name, trim, year, color, make, model, vin } = post;
 
   return (
 
@@ -12,7 +12,7 @@ const Card = ({ post }) => {
       <Item.Group divided>
         <Item>
           <List>
-            <Item.Header>{name}'s Vehicles</Item.Header>
+            <Item.Header name="name" as='a' >{name}'s Vehicles</Item.Header>
             <Item.Description>
               <b> {year} </b>
             </Item.Description>
@@ -21,9 +21,9 @@ const Card = ({ post }) => {
             </Item.Description>
             <Item.Description>
               <b> {model} </b>
-              <Item.Description>
-                <b> {trim} </b>
-              </Item.Description>
+            </Item.Description>
+            <Item.Description>
+              <b> {trim} </b>
             </Item.Description>
             <Item.Description>
               <b> {color} </b>
@@ -35,10 +35,10 @@ const Card = ({ post }) => {
           </List>
         </Item>
       </Item.Group>
-    </Container>
+    </Container >
 
   )
 
 }
 
-export default Card;
+export default Card

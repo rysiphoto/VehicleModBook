@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import VehicleForm from "./Vehicle"
-import axios from "axios";
-import Card from "./Card"
+import React, { Component } from 'react'
+import VehicleForm from './Vehicle'
+import axios from 'axios'
+import Card from './Card'
 
 export default class Garage extends Component {
   state = {
@@ -17,7 +17,7 @@ export default class Garage extends Component {
   }
 
   componentDidMount() {
-    this.getGarageEntries()
+    this.getVehicleEntries()
   }
 
   getVehicleEntries = () => {
