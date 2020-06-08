@@ -1,9 +1,5 @@
 import React from "react"
-import {
-  Container,
-  Item,
-  List
-} from "semantic-ui-react"
+import { Container, Item, List } from "semantic-ui-react"
 
 
 const Card = ({ post }) => {
@@ -16,24 +12,24 @@ const Card = ({ post }) => {
       <Item.Group divided>
         <Item>
           <List>
-            <Item.Header name="name" as='a' >{name}'s Vehicles</Item.Header>
+            <Item.Header>{name}'s Vehicles</Item.Header>
             <Item.Description>
-              <b> ${year} </b>
+              <b> {year} </b>
             </Item.Description>
             <Item.Description>
               <b> {make} </b>
             </Item.Description>
             <Item.Description>
-              <b>{model}</b>
+              <b> {model} </b>
               <Item.Description>
-                <b> ${trim} </b>
+                <b> {trim} </b>
               </Item.Description>
-            </Item.Description><br />
-            <Item.Description>
-              {color}
             </Item.Description>
             <Item.Description>
-              <b> ${vin} </b>
+              <b> {color} </b>
+            </Item.Description>
+            <Item.Description>
+              <b> {vin} </b>
             </Item.Description>
 
           </List>

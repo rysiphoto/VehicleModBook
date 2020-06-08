@@ -8,12 +8,7 @@ const NavBar = () => {
 
   return (
     <div>
-      {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>Log in</button>
-      )}
 
-
-      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
 
       {/* NEW - add a link to the home and profile pages */}
       {isAuthenticated && (
@@ -24,6 +19,12 @@ const NavBar = () => {
           <Link to="/garage">Garage</Link>
         </span>
       )}
+      {!isAuthenticated && (
+        <button onClick={() => loginWithRedirect({})}>Log in</button>
+      )}
+
+
+      {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
     </div>
   )
 }
