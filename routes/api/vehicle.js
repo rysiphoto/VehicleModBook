@@ -1,16 +1,16 @@
 const router = require("express").Router();
-const vehicleController = require("../../controllers/vehicleController");
+const garageController = require("../../controllers/garageController");
 
 // Matches with "/api/vehicle"
 router.route("/vehicle")
-  .get(vehicleController.findAll)
-  .post(vehicleController.create);
+  .get(garageController.findAll)
+  .post(garageController.create);
 
 // Matches with "/api/vehicle/:id"
 router
   .route("/vehicle/:id")
-  .get(vehicleController.findById)
-  .put(vehicleController.update)
-  .delete(vehicleController.remove);
+  .get(garageController.findById)
+  .put(garageController.update)
+  .delete(garageController.remove);
 
 module.exports = router;

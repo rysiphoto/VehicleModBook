@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const VehicleSchema = new Schema({
+const GarageSchema = new Schema({
   year: { Number },
   make: { type: String, required: true },
   model: { type: String, required: true },
@@ -11,6 +11,6 @@ const VehicleSchema = new Schema({
   vin: { type: String, required: true }
 });
 
-const Vehicle = mongoose.model("Vehicle", VehicleSchema);
+const Garage = mongoose.model("Garage", GarageSchema);
 
-module.exports = Vehicle;
+module.exports = Garage;

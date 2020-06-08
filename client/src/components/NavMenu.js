@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-// import NavBar from "/NavBar";
+import NavBar from "./NavBar";
 import React, { Component } from 'react';
-import { Menu, Segment } from 'semantic-ui-react';
+import { Menu, Segment, Input } from 'semantic-ui-react';
 
 export default class MenuExampleSecondaryPointing extends Component {
   state = { activeItem: 'home' }
@@ -39,16 +39,16 @@ export default class MenuExampleSecondaryPointing extends Component {
             onClick={this.handleItemClick}
           />
 
-          <Menu.Menu position='right'>
+          <Menu.Item position='right'>
 
-            {/* <NavBar /> */}
+            <NavBar />
+          </Menu.Item>
 
-          </Menu.Menu>
         </Menu>
 
-        <Segment>
+        {/* <Segment>
           <img src='/images/wireframe/media-paragraph.png' />
-        </Segment>
+        </Segment> */}
       </div>
     )
   }

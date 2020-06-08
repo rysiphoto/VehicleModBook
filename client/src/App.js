@@ -24,8 +24,8 @@ function App() {
         </header>
         <Switch>
           <Route exact path="/" component={Home} />
-          <PrivateRoute path="/Profile" component={Profile} />
-          <PrivateRoute path="/Garage" component={Garage} />
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/garage" component={Garage} />
           {/* <PrivateRoute path="/external-api" component={ExternalApi} /> */}
         </Switch>
 

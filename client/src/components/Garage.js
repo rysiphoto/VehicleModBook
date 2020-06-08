@@ -21,7 +21,7 @@ export default class Garage extends Component {
   }
 
   getVehicleEntries = () => {
-    axios.get("/api/vehicle/garage")
+    axios.get("/api/garage/vehicle")
       .then(res => this.setState({ posts: res.data }))
       .catch(err => console.log(err))
   }
@@ -35,7 +35,7 @@ export default class Garage extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    axios.post("/api/vehicle/garage", this.state.post)
+    axios.post("/api/garage/vehicle", this.state.post)
       .then(res => this.getVehicleEntries())
       .catch(err => console.log(err))
   }
