@@ -1,0 +1,20 @@
+#nice {
+  border-color: white;
+  box-shadow: none;
+  border: none;
+  padding: .78571429em .92857143em;
+  margin: 0 .35714286em;
+  background-color: white;
+  border-radius: .28571429rem;
+  transition: color .1s ease;
+  color: rgba(0,0,0,.87);
+  font-weight: 400;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 1rem;
+}
+
+#greeting {
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: 400;
+}

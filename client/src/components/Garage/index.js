@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Vehicle from "./Vehicle";
+import VehicleForm from "./Vehicle"
 import axios from "axios";
-import Card from "./Card";
+import Card from "./Card"
 
 export default class Garage extends Component {
   state = {
@@ -20,7 +20,7 @@ export default class Garage extends Component {
     this.getGarageEntries()
   }
 
-  getGarageEntries = () => {
+  getVehicleEntries = () => {
     axios.get("/api/vehicle/garage")
       .then(res => this.setState({ posts: res.data }))
       .catch(err => console.log(err))
@@ -36,14 +36,14 @@ export default class Garage extends Component {
   handleSubmit = e => {
     e.preventDefault()
     axios.post("/api/vehicle/garage", this.state.post)
-      .then(res => this.getGarageEntries())
+      .then(res => this.getVehicleEntries())
       .catch(err => console.log(err))
   }
 
   render() {
     return (
       <div className="containerHome">
-        <Vehicle
+        <VehicleForm
           name={this.state.post.name}
           make={this.state.post.make}
           model={this.state.post.model}

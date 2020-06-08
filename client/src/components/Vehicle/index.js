@@ -2,7 +2,7 @@ import React from 'react';
 import { Form } from 'semantic-ui-react';
 
 
-const Vehicle = ({ name, make, model, color, trim, year, vin, handleChange, handleSubmit }) => {
+const VehicleForm = ({ name, make, model, color, trim, year, vin, handleChange, handleSubmit }) => {
 
   return (
     <div className="containerHome">
@@ -33,4 +33,4 @@ const Vehicle = ({ name, make, model, color, trim, year, vin, handleChange, hand
   )
 }
 
-export default Vehicle;
+export default VehicleForm;

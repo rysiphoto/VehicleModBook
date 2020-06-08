@@ -1,14 +1,13 @@
 import React from "react";
-import NavBar from "./components/NavBar";
 import PrivateRoute from "./components/PrivateRoute";
 import { Router, Route, Switch } from "react-router-dom";
-// import ExternalApi from "./views/ExternalApi";
 import Profile from "./components/Profile";
 import Title from "./components/Title";
 import Footer from "./components/Footer";
+import MenuExampleSecondaryPointing from "./components/NavMenu";
 import history from "./utils/history";
-import Garage from "./pages/garage";
-
+import Garage from "./components/Garage";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -16,19 +15,19 @@ function App() {
       {/* Don't forget to include the history module */}
       <Router history={history}>
         <header>
-          <Title></Title>
-          <NavBar />
+          <Title />
+          <MenuExampleSecondaryPointing />
         </header>
         <Switch>
-          <Route path="/" exact />
-          <Route path="/profile" component={Profile} />
-          <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/pages/garage" component={Garage} />
+          <Route exact path="/" component={Home} />
+          <PrivateRoute path="/Profile" component={Profile} />
+          <PrivateRoute path="/Garage" component={Garage} />
           {/* <PrivateRoute path="/external-api" component={ExternalApi} /> */}
 
         </Switch>
-        <Footer></Footer>
+
       </Router>
+      <Footer />
     </div>
   );
 }

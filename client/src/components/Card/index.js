@@ -1,10 +1,10 @@
 import React from "react"
-import { Container, Item, List } from "semantic-ui-react"
-
+import { Container, Item } from "semantic-ui-react"
+import { List } from "./List";
 
 const Card = ({ post }) => {
 
-  const { name, trim, year, color, make, model, vin } = post;
+  let { name, trim, year, color, make, model, vin } = post;
 
   return (
 
