@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import NavBar from "./NavBar";
 import React, { Component } from 'react';
-import { Menu, Segment, Input } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 
 export default class MenuExampleSecondaryPointing extends Component {
   state = { activeItem: 'home' }
@@ -23,11 +23,11 @@ export default class MenuExampleSecondaryPointing extends Component {
             onClick={this.handleItemClick}
           />
           <Menu.Item
-            name='Garage'
-            active={activeItem === 'Garage'}
+            name='Vehicle'
+            active={activeItem === 'Vehicle'}
             as={NavLink}
             exact
-            to="/Garage"
+            to="/Vehicle"
             onClick={this.handleItemClick}
           />
           <Menu.Item

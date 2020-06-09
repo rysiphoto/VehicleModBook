@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import VehicleForm from './Vehicle'
+import VehicleForm from './Form'
 import axios from 'axios'
 import Card from './Card'
 
-export default class Garage extends Component {
+export default class Vehicle extends Component {
   state = {
     post: {
       name: "",
