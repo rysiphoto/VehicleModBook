@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const GarageSchema = new Schema({
+const vehicleSchema = new Schema({
 
+  name: { type: String, required: true },
   make: { type: String, required: true },
   model: { type: String, required: true },
   color: { type: String, required: true },
@@ -11,6 +12,6 @@ const GarageSchema = new Schema({
   vin: { type: String, required: true }
 });
 
-const Garage = mongoose.model("Garage", GarageSchema);
+const Vehicle = mongoose.model("Vehicle", vehicleSchema);
 
-module.exports = Garage;
+module.exports = Vehicle;

@@ -3,13 +3,13 @@ import { useAuth0 } from "../react-auth0-spa";
 import './style.css';
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
   return (
     <div>
       {isAuthenticated && (
         <span id="greeting">
-          &nbsp;&nbsp;&nbsp;&nbsp;Welcome
+          &nbsp;&nbsp;&nbsp;&nbsp;Welcome, {user.email}
         </span>
       )}
       {!isAuthenticated && (

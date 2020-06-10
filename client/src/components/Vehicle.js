@@ -1,64 +1,134 @@
-import React, { Component } from 'react'
-import VehicleForm from './Form'
-import axios from "axios"
-import Card from "./Card"
+import React, { useEffect, useState } from 'react'
+import { Input, FormBtn } from './Form'
+import API from "../utils/API";
+import { ListItem } from "../components/List";
+import { Col, Row, Container } from "../components/Grid";
+import { Link } from "react-router-dom";
+import DeleteBtn from "../components/DeleteBtn";
+import { Form } from 'semantic-ui-react';
+import './style.css';
 
-export default class Vehicle extends Component {
-  state = {
-    post: {
-      name: "",
-      make: "",
-      model: "",
-      color: "",
-      year: "",
-      trim: "",
-      vin: ""
-    }, posts: []
-  }
+function Vehicle() {
 
-  componentDidMount() {
-    this.getVehicleEntries()
-  }
+  const [vehicles, setVehicles] = useState([])
+  const [formObject, setFormObject] = useState({})
 
-  getVehicleEntries = () => {
-    axios.get("/api/garage/vehicle")
-      .then(res => this.setState({ posts: res.data }))
+
+  useEffect(() => {
+    loadVehicles()
+  }, [])
+
+  function loadVehicles() {
+    API.getVehicle()
+      .then(res =>
+        setVehicles(res.data)
+      )
       .catch(err => console.log(err))
+  };
+  function deleteVehicle(id) {
+    API.deleteVehicle(id)
+      .then(res => loadVehicles())
+      .catch(err => console.log(err));
   }
 
-  handleChange = e => {
+  function handleChange(e) {
     const { name, value } = e.target
-    const post = { ...this.state.post }
-    post[name] = value
-    this.setState({ post: post })
-  }
+    setFormObject({ ...formObject, [name]: value })
+  };
 
-  handleSubmit = e => {
+  function handleSubmit(e) {
     e.preventDefault()
-    axios.post("/api/garages/vehicle", this.state.post)
-      .then(res => this.getVehicleEntries())
-      .catch(err => console.log(err))
-  }
+    if (formObject.name && formObject.make) {
+      API.saveVehicle({
+        name: formObject.name,
+        make: formObject.make,
+        model: formObject.model,
+        trim: formObject.trim,
+        year: formObject.year,
+        color: formObject.color,
+        vin: formObject.vin
+      })
+        .then(res => loadVehicles())
+        .catch(err => console.log(err));
+    }
+  };
 
-  render() {
-    return (
-      <div className="containerHome">
-        <VehicleForm
-          name={this.state.post.name}
-          make={this.state.post.make}
-          model={this.state.post.model}
-          trim={this.state.post.trim}
-          year={this.state.post.year}
-          vin={this.state.post.vin}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-        />
-        {this.state.posts.map(post => (
-          <Card post={post} key={post._id} />
-        ))}
-      </div>
+  return (
+    <div className="container">
+      <Container fluid>
+        <Row>
+          <Col size="md-6">
+            <Form>
+              <Form.Group widths='equal'>
 
-    )
-  }
+                <Input
+                  onChange={handleChange}
+                  name="name"
+                  placeholder="name"
+                />
+                <Input
+                  onChange={handleChange}
+                  name="make"
+                  placeholder="make"
+                />
+                <Input
+                  onChange={handleChange}
+                  name="model"
+                  placeholder="model"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Input
+                  onChange={handleChange}
+                  name="trim"
+                  placeholder="trim"
+                />
+                <Input
+                  onChange={handleChange}
+                  name="color"
+                  placeholder="color"
+                />
+                <Input
+                  onChange={handleChange}
+                  name="year"
+                  placeholder="year"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Input
+                  onChange={handleChange}
+                  name="vin"
+                  placeholder="vin"
+                />
+              </Form.Group>
+              <Form.Group>
+                <FormBtn
+                  onChange={handleSubmit}
+                >Submit Vehicle
+              </FormBtn>
+
+              </Form.Group>
+            </Form>
+          </Col>
+          <Col size="md-6 sm-12">
+
+            {vehicles.map(vehicle => (
+              <ListItem key={vehicle._id}>
+                <Link to={"/vehicles/" + vehicle._id}>
+                  <strong>
+                    {vehicle.name} by {vehicle.make}
+                  </strong>
+                </Link>
+                <DeleteBtn onClick={() => deleteVehicle(vehicle._id)} />
+              </ListItem>
+            )
+
+            )}
+          </Col>
+        </Row>
+      </Container>
+    </div >
+  );
 }
 
+export default Vehicle;

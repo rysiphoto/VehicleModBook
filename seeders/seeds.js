@@ -1,10 +1,9 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/VehicleModBook", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+  "mongodb://localhost/VehicleModBook");
 
 let vehicleSeed = [
   {
@@ -24,8 +23,9 @@ let vehicleSeed = [
   }
 ]
 
-db.Garage.remove({})
-  .then(() => db.Garage.collection.insertMany(vehicleSeed))
+db.Vehicle
+  .remove({})
+  .then(() => db.Vehicle.collection.insertMany(vehicleSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

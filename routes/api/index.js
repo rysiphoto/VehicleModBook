@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const vehicleRoutes = require("./vehicle");
+const vehicleRoutes = require("./vehicles");
 
 // vehicle routes
-router.use("/vehicle", vehicleRoutes);
+router.use("/vehicles", vehicleRoutes);
 
 module.exports = router;
 

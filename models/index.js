@@ -1,3 +1,3 @@
 module.exports = {
-  Garage: require("./garage")
+  Vehicle: require("./vehicle")
 };

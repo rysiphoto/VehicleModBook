@@ -19,20 +19,18 @@
   font-weight: 400;
 }
 
-.containerHome {
-  padding: 20px;
-}
 
 .tj {
   font-weight: 500;
 }
+
 .containerHome {
   padding: 20px;
   max-width: 1024px;
   border: 0px;
   border-bottom: 0px;
-
 }
+
 
 .container {
   padding: 20px;
@@ -52,4 +50,3 @@
 p {
   font-size: 1.2rem;
 }
-
