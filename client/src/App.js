@@ -7,7 +7,7 @@ import Title from "./components/Title";
 import Footer from "./components/Footer";
 import MenuExampleSecondaryPointing from "./components/NavMenu";
 import history from "./utils/history";
-import Garage from "./components/Garage";
+import Vehicle from "./components/Vehicle";
 import Home from "./components/Home";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/garage" component={Garage} />
+          <PrivateRoute path="/vehicle" component={Vehicle} />
           {/* <PrivateRoute path="/external-api" component={ExternalApi} /> */}
         </Switch>
 

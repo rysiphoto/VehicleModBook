@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import VehicleForm from './Form'
-import axios from 'axios'
-import Card from './Card'
+import axios from "axios"
+import Card from "./Card"
 
 export default class Vehicle extends Component {
   state = {
     post: {
       name: "",
-      trim: "",
-      year: "",
-      color: "",
       make: "",
       model: "",
+      color: "",
+      year: "",
+      trim: "",
       vin: ""
     }, posts: []
   }

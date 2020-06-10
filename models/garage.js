@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const GarageSchema = new Schema({
-  year: { Number },
+
   make: { type: String, required: true },
   model: { type: String, required: true },
-  Trim: { type: String, required: true },
-  Color: { type: String, required: true },
-  pdate: { type: Date, default: Date.now },
+  color: { type: String, required: true },
+  year: { type: String, required: true },
+  trim: { type: String, required: true },
   vin: { type: String, required: true }
 });
 

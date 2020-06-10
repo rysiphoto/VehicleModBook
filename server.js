@@ -1,15 +1,26 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const jwt = require("express-jwt");
+const routes = require("./routes");
 const jwksRsa = require("jwks-rsa");
-
-// Create a new Express app
 const app = express();
+const PORT = process.env.PORT || 3001;
+// Create a new Express app
 
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// Add routes, both API and view
+app.use(routes);
 // Accept cross-origin requests from the frontend app
 app.use(cors({ origin: 'http://localhost:3000' }));
 
-// Set up Auth0 configuration
+// // Set up Auth0 configuration
 const authConfig = {
   domain: "localhost:3000",
   audience: "https://vehiclemodbook.auth0.com/api/v2/"
@@ -29,7 +40,7 @@ const checkJwt = jwt({
   issuer: `https://${authConfig.domain}/`,
   algorithm: ["RS256"]
 });
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/VehicleModBook");
 // Define an endpoint that must be called with an access token
 app.get("/api/external", checkJwt, (req, res) => {
   res.send({
@@ -38,4 +49,6 @@ app.get("/api/external", checkJwt, (req, res) => {
 });
 
 // Start the app
-app.listen(3001, () => console.log('API listening on 3001'));
+app.listen(PORT, function () {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
