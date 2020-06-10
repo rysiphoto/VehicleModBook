@@ -31,6 +31,22 @@ export default class MenuExampleSecondaryPointing extends Component {
             onClick={this.handleItemClick}
           />
           <Menu.Item
+            name='Basic'
+            active={activeItem === 'Basic'}
+            as={NavLink}
+            exact
+            to="/Basic"
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            name='Service'
+            active={activeItem === 'Service'}
+            as={NavLink}
+            exact
+            to="/Service"
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
             name='Profile'
             active={activeItem === 'Profile'}
             as={NavLink}

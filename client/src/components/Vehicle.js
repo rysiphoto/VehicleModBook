@@ -35,7 +35,7 @@ export default class Vehicle extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    axios.post("/api/garage/vehicle", this.state.post)
+    axios.post("/api/garages/vehicle", this.state.post)
       .then(res => this.getVehicleEntries())
       .catch(err => console.log(err))
   }

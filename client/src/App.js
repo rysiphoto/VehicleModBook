@@ -9,6 +9,8 @@ import MenuExampleSecondaryPointing from "./components/NavMenu";
 import history from "./utils/history";
 import Vehicle from "./components/Vehicle";
 import Home from "./components/Home";
+import Service from "./components/Service";
+import Basic from "./components/Basic";
 
 function App() {
   const { loading } = useAuth0();
@@ -25,6 +27,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/basic" component={Basic} />
+          <PrivateRoute path="/service" component={Service} />
           <PrivateRoute path="/vehicle" component={Vehicle} />
           {/* <PrivateRoute path="/external-api" component={ExternalApi} /> */}
         </Switch>
