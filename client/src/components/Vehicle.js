@@ -19,7 +19,7 @@ function Vehicle() {
   }, [])
 
   function loadVehicles() {
-    API.getVehicle()
+    API.getVehicles()
       .then(res =>
         setVehicles(res.data)
       )
@@ -31,12 +31,12 @@ function Vehicle() {
       .catch(err => console.log(err));
   }
 
-  function handleChange(e) {
+  function handleInputChange(e) {
     const { name, value } = e.target
     setFormObject({ ...formObject, [name]: value })
   };
 
-  function handleSubmit(e) {
+  function handleFormSubmit(e) {
     e.preventDefault()
     if (formObject.name && formObject.make) {
       API.saveVehicle({
@@ -52,7 +52,6 @@ function Vehicle() {
         .catch(err => console.log(err));
     }
   };
-
   return (
     <div className="container">
       <Container fluid>
@@ -62,48 +61,48 @@ function Vehicle() {
               <Form.Group widths='equal'>
 
                 <Input
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                   name="name"
                   placeholder="name"
                 />
                 <Input
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                   name="make"
                   placeholder="make"
                 />
                 <Input
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                   name="model"
                   placeholder="model"
                 />
               </Form.Group>
               <Form.Group>
                 <Input
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                   name="trim"
                   placeholder="trim"
                 />
                 <Input
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                   name="color"
                   placeholder="color"
                 />
                 <Input
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                   name="year"
                   placeholder="year"
                 />
               </Form.Group>
               <Form.Group>
                 <Input
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                   name="vin"
                   placeholder="vin"
                 />
               </Form.Group>
               <Form.Group>
                 <FormBtn
-                  onChange={handleSubmit}
+                  onChange={handleFormSubmit}
                 >Submit Vehicle
               </FormBtn>
 

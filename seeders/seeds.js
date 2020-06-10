@@ -12,6 +12,7 @@ let vehicleSeed = [
     model: "Wrangler Unlimited",
     year: "2018",
     trim: "Rubicon",
+    color: "Mojito!",
     vin: "232342353263tsdgsdgsgdfg"
   }, {
     name: "Ryan Siverson",
@@ -19,6 +20,7 @@ let vehicleSeed = [
     model: "J20",
     year: "1978",
     trim: "Custom",
+    color: "White",
     vin: "456234gsdereg5gsgdfg"
   }
 ]

@@ -15,6 +15,6 @@ export default {
   },
   // Saves a vehicle to the database
   saveVehicle: function (vehicleData) {
-    return axios.post("/api/vehicles/", vehicleData);
+    return axios.post("/api/vehicles", vehicleData);
   }
 };

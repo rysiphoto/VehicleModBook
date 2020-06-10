@@ -7,9 +7,11 @@ import API from "../../utils/API";
 const Profile = (props) => {
   const [vehicle, setVehicle] = useState({})
   const { loading, user } = useAuth0();
+
   const { id } = useParams()
   useEffect(() => {
     API.getVehicle(id)
+
       .then(res => setVehicle(res.data))
       .catch(err => console.log(err));
   })
@@ -28,7 +30,7 @@ const Profile = (props) => {
         {/* <code>{JSON.stringify(user, null, 2)}</code> */}
         <p className="tj">Vehicles:</p>
         <h3>
-          {vehicle.make}, {vehicle.model}, {vehicle.trim}
+          {vehicle.make}{vehicle.model}{vehicle.trim}
         </h3>
       </Fragment>
     </div>
